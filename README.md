@@ -1,4 +1,4 @@
-# go-app-cicd
+# GO-APP-CICD
 Implement DevOps practices in the Go web application
 
 # Overview
