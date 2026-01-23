@@ -6,7 +6,7 @@
 
 **a.** Get the app code from developer team and clone/copy locally.
 
-![Developer_provided_code_screenshot](\static\images\Developer_provided_code_screenshot.png)
+![Developer_provided_code_screenshot](static/images/Developer_provided_code_screenshot.png)
 
 **b.** Generally you will get above code from developer, Where:
 
