@@ -1,68 +1,82 @@
-<Doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Contact</title>
-        <style>
-            body {
-                margin: 0;
-                padding: 0;
-            }
+<head>
+    <title>Contact</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: #e5e7eb;
+        }
 
-            header {
-                background-color: #333;
-                color: #fff;
-                padding: 10px 0;
-                text-align: center;
-            }
+        header, footer {
+            background: #020617;
+            text-align: center;
+            padding: 12px 0;
+        }
 
-            nav ul {
-                list-style-type: none;
-                padding: 0;
-            }
+        nav a {
+            color: #e5e7eb;
+            margin: 0 12px;
+            text-decoration: none;
+        }
 
-            nav ul li {
-                display: inline;
-                margin-right: 10px;
-            }
+        nav a:hover {
+            color: #38bdf8;
+        }
 
-            nav ul li a {
-                color: #fff;
-                text-decoration: none;
-            }
+        main {
+            padding: 40px;
+            max-width: 900px;
+            margin: auto;
+        }
 
-            main {
-                padding: 20px;
-            }
+        section {
+            background: #020617;
+            padding: 25px;
+            border-radius: 8px;
+        }
 
-            section {
-                margin-bottom: 20px;
-            }
+        h1 {
+            color: #38bdf8;
+        }
+    </style>
+</head>
 
-            footer {
-                background-color: #333;
-                color: #fff;
-                text-align: center;
-                padding: 10px 0;
-                position: fixed;
-                bottom: 0;
-                width: 100%;
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="home">Home</a></li>
-                    <li><a href="about">About</a></li>
-                    <li><a href="contact">Contact</a></li>
-                    <li><a href="courses">Courses</a></li>
-                </ul>
-            </nav>
-        </header>
+<body>
 
-        <main>
-            <section>
-                <h1>Contact Us</h1>
-                <p>For any doubts while learning, Join our Members only exclusive slack channel</p>
-                <a href="https://www.youtube.com/abhishekVeeramalla/join">Join Slack</a>
+<header>
+    <nav>
+        <a href="home">Home</a>
+        <a href="about">About</a>
+        <a href="courses">Courses</a>
+        <a href="contact">Contact</a>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h1>Contact & Community</h1>
+        <p>
+            This platform encourages self-learning and community participation.
+        </p>
+
+        <p>
+            For questions and discussions, consider:
+        </p>
+
+        <ul>
+            <li>Stack Overflow</li>
+            <li>DevOps & Kubernetes Reddit communities</li>
+            <li>GitHub Issues and Discussions</li>
+        </ul>
+    </section>
+</main>
+
+<footer>
+    <p>© Free DevOps Learning</p>
+</footer>
+
+</body>
+</html>

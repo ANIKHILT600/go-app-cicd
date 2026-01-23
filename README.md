@@ -43,3 +43,6 @@ The workflow steps are as follows:
 **DNS Mapping for External Access** : Mapping the load balancer's external address to a custom domain name (e.g., by modifying /etc/hosts locally for demonstration purposes) to allow external access to the application via the Ingress rules.
 
 **Creating Helm Chart for Multi-Environment Deployments** : Setting up a Helm chart for the application to enable easier deployment and management across different environments (development, QA, production) by parameterizing values like image tags.
+
+
+# For detailed steps to implement project can be found in [README_IMPLEMENTATION.md](README_IMPLEMENTATION.md)
