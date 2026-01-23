@@ -1,16 +1,16 @@
 # Implementation steps
 
-**1. Local App test**:
+**1. Understanding & testing the Project Locally**:
 
 **a.** Get the app code from developer team and clone/copy locally.
 
-go-web-app/--
-            - static/
-            - go-web-app.md
-            - go.mod     
-            - main
+![Developer provided code screenshot](\static\images\Developer_provided_code_screenshot.png)
 
-Generally you will get above code from developer, Where:
+**b.** Generally you will get above code from developer, Where:
+
+- static folder contains web app code.
+
+- The main.go file is the entry point of your Go application. It contains the main() function where your program execution begins.
 
 - The go.mod file declares the module path and tracks the project's dependencies. 
 
@@ -23,9 +23,9 @@ example:
 go mod init github.com/nikhil600/go-app-cicd
 ```
 
-- "main" is the compiled binary. The below command is used to build the Go application and compile it into a binary executable file
+- "main" is the compiled binary. The below command is used to build the Go application and compile it into a binary executable file. Below is how you can build it:
 ```
-go build -o main .
+go build -o main main.go
 ```
 Here's what each part does:
 
@@ -33,5 +33,17 @@ go build: This is the command to compile a Go program.
 
 -o main: This flag specifies the output file name for the compiled binary. In this case, the executable will be named main. If you chose another name like "app-binary," the binary would be created with that name.
 
-- Once the main binary is created, it can be executed using ./main to run the application in local to test it.
+- Once the main binary is created, it can be executed using ./main or go run main.go to run the application in local to test it.
+```
+go run main.go
+```
+If the process is running and want to terminate use below:
+```
+Get-Process | Where-Object {$_.Name -eq "main" -or $_.ProcessName -eq "main"} | Stop-Process -Force -ErrorAction SilentlyContinue; "Process terminated"
+```
+
+Note: The server will start on port 8080. You can not access web-app on localhost:8080. As per developer instructions you can access it by navigating to http://localhost:8080/courses in your web browser.
+
+
+**2. Containerization with Multi-Stage Dockerfile**:
 
