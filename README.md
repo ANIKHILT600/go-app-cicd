@@ -16,12 +16,16 @@ This project provides a comprehensive guide to implementing end-to-end DevOps pr
 
 **Helm Chart Creation** : The project introduces Helm for managing Kubernetes applications across different environments (e.g., development, QA, production). It shows how to create a Helm chart and parameterize values to avoid hardcoding configurations.
 
+**Continuous Integration (CI)** : The project uses GitHub Actions to set up CI. 
+
+**Continuous Delivery (CD)** : CD is implemented using GitOps principles. Argo CD is the tool chosen to implement the continuous delivery process.
+
 
 # Detailed workflow for implementing end-to-end DevOps on a Golang web application.
 
 The workflow steps are as follows:
 
-**Understanding the Project Locally** : Before containerizing, the first step is to get the application's GitHub repository, build it, and run it locally to understand its functionality, how it's accessed (e.g., specific paths like /courses), and its dependencies.
+**Understanding & testing the Project Locally** : Before containerizing, the first step is to get the application's GitHub repository, build it, and run it locally to understand its functionality, how it's accessed (e.g., specific paths like /courses), and its dependencies.
 
 **Containerization with Multi-Stage Dockerfile** : This involves writing a Dockerfile that uses a multi-stage build process to create a smaller and more secure Docker image. The project details setting up a base stage for building the application and a final stage using a distroless image, copying the binary and static content, exposing ports, and running the application. It also covers troubleshooting issues like Go version mismatches during the build.
 
@@ -44,5 +48,10 @@ The workflow steps are as follows:
 
 **Creating Helm Chart for Multi-Environment Deployments** : Setting up a Helm chart for the application to enable easier deployment and management across different environments (development, QA, production) by parameterizing values like image tags.
 
+**Continuous Integration (CI)** : The project uses GitHub Actions to set up CI. Within the CI process, there will be multiple stages, typically including building the application, unit tests, creating Docker images, pushing the docker images and updating the helm with new docker tag(gitbub Run_id).
+
+**Continuous Delivery (CD)** : CD is implemented using GitOps principles. Argo CD is the tool chosen to implement the continuous delivery process. ArgoCD will pick the updated helm chart and install it into kubernetes.
+
+The ultimate goal of the CI/CD pipeline is to deploy the application onto a Kubernetes cluster, which serves as the target platform.
 
 # For detailed steps to implement project can be found in [README_IMPLEMENTATION.md](README_IMPLEMENTATION.md)
