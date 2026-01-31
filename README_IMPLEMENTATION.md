@@ -160,7 +160,7 @@ eksctl create cluster --name demo-cluster --region us-east-1
 eksctl get cluster --region us-east-1
 ```
 
-NOTE: If you want to use aws fargate instead of ec2 refer : [EKS Fargate Guide](./fargate.md)
+NOTE: If you want to use aws fargate instead of ec2 refer : [EKS Fargate Guide](./Fargate.md)
 
 # 6. Deploying Kubernetes Manifests
 
@@ -172,7 +172,7 @@ Applying three core Kubernetes YAML files:
 
 To apply: 
 ```
-kubectl apply -f k8s/manifest/deployment.yaml
+kubectl apply -f k8s/manifests/deployment.yaml
 ```
 To verify pods: 
 ```
@@ -183,7 +183,7 @@ kubectl get pods
 
 To apply: 
 ```
-kubectl apply -f k8s/manifest/service.yaml
+kubectl apply -f k8s/manifests/service.yaml
 ```
 To verify service: 
 ```
@@ -194,7 +194,7 @@ kubectl get svc
 
 To apply: 
 ```
-kubectl apply -f k8s/manifest/ingress.yaml
+kubectl apply -f k8s/manifests/ingress.yaml
 ```
 To verify ingress: 
 ```
