@@ -390,7 +390,7 @@ These templates will then use variables (defined in values.yaml) to allow for dy
 
 Open the deployment.yaml file (located in helm/go-web-app-chart/templates/) and replace static values with Helm's templating syntax.
 
-Example *image: anikhilt600/go-web-app:V1* change this to *image: anikhilt600/go-web-app:{{ .Values.image.tag }}*.
+Example *image: anikhilt600/go-web-app:V1* change this to *image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"*.
 
 This tells Helm: "Look into the values.yaml file, find the image section, and then use the values for repository and tag."
 
