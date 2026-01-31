@@ -564,11 +564,18 @@ kubectl edit secrets argocd-initial-admin-secret -n argocd
 ```
 Copy the password which is base64 encoded
 
-3. Decode the password to get the decoded password to use in UI password.
+3. Decode the password to get the decoded password to use in UI password (replace PASSWORD with actual password).
 ```
-echo password | base64 --decode
+echo PASSWORD | base64 --decode
 ```
-Note: do not copy the last % from password.
+For windows powershell use below:
+```
+[System.Text.Encoding]::UTF8.GetString(
+[System.Convert]::FromBase64String("PASSWORD") ) 
+```
+
+Note: do not copy the last % from password (if any).
+
 
 
 **Configure the ArgoCD**
