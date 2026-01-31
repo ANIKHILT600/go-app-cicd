@@ -4,7 +4,7 @@
 # Start with a base image
 #FROM golang:1.21 as base --> initially specified
 
-FROM golang:1.25.6 as base
+FROM golang:1.24 as base
 
 
 # Set the working directory inside the container
