@@ -160,7 +160,19 @@ eksctl create cluster --name demo-cluster --region us-east-1
 eksctl get cluster --region us-east-1
 ```
 
-NOTE: If you want to use aws fargate instead of ec2 refer : [EKS Fargate Guide](./Fargate.md)
+**Optional**
+If your cluster is failing due below you can utilize **cluster-ec2.yaml** to provision same:
+
+EKS control plane creation succeeded, but managed node groups failed due to bootstrap and Auto Mode behavior. Disabling Auto Mode and using a stable Kubernetes version with explicit networking resolved the issue.
+
+```
+eksctl create cluster -f cluster-ec2.yaml
+
+```
+
+
+**NOTE**: If you want to use aws fargate instead of ec2 refer : [EKS Fargate Guide](./Fargate.md)
+
 
 # 6. Deploying Kubernetes Manifests
 
@@ -233,6 +245,8 @@ This command displays detailed information about your cluster nodes, including t
 Nodes_External_IP:service_PORT
 ```
 Example: 54.161.25.151:32099/courses
+
+Note: If not able to access app on browser, make sure the node(ec2 instance) security group inbound configuration have port open.
 
 The NodePort verification is a testing method, while the Ingress Controller is the production-ready solution for exposing applications via HTTP/S.
 

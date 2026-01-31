@@ -126,7 +126,6 @@ kubectl get ingress
 ```
 
 If you try to access the application directly using the NLB's domain name address, you will gets a "404 Not Found" error. This is because the Ingress.yaml resource is configured to only accept requests on a specific hostname, go-web-app.local, not directly on the load balancer's default domain.
----
 
 # 9. DNS Mapping for External Access
 
