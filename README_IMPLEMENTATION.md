@@ -1,3 +1,26 @@
+# High level flow
+
+Local Test
+  ↓
+Docker Build & Test
+  ↓
+Docker Registry
+  ↓
+EKS (Fargate)
+  ↓
+Ingress + LoadBalancer
+  ↓
+DNS Mapping
+  ↓
+Helm
+  ↓
+GitHub Actions (CI)
+  ↓
+Argo CD (CD)
+  ↓
+Live Application
+
+
 # Implementation steps
 
 ----------------------------------------------------
@@ -131,12 +154,13 @@ eksctl – A command line tool for working with EKS clusters that automates many
 
 The EKS cluster is created using the eksctl utility:
 ```
-eksctl create cluster --name demo-cluster --region us-east-1 --fargate
+eksctl create cluster --name demo-cluster --region us-east-1
 ```
 ```
 eksctl get cluster --region us-east-1
 ```
 
+NOTE: If you want to use aws fargate instead of ec2 refer : [EKS Fargate Guide](./fargate.md)
 
 # 6. Deploying Kubernetes Manifests
 
