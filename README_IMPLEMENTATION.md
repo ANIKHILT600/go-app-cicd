@@ -390,7 +390,7 @@ These templates will then use variables (defined in values.yaml) to allow for dy
 
 Open the deployment.yaml file (located in helm/go-web-app-chart/templates/) and replace static values with Helm's templating syntax.
 
-Example *image: anikhilt600/go-web-app:V1* change this to *image: {{ .Values.image.repository }}:{{ .Values.image.tag }}**.
+Example *image: anikhilt600/go-web-app:V1* change this to *image: anikhilt600/go-web-app:{{ .Values.image.tag }}*.
 
 This tells Helm: "Look into the values.yaml file, find the image section, and then use the values for repository and tag."
 
@@ -456,7 +456,7 @@ kubectl get ing
 
 As we verified helm, uninstall helm as :
 ```
-helm uninstall
+helm uninstall go-web-app
 ```
 
 # 11. Continuous Integration (CI)
@@ -524,14 +524,40 @@ Get the node external IP using:
 ```
 kubectl get nodes -o wide
 ```
-And on browser paste node-external-IP:rgocd-server port. For example : *54.161.25.151:32308*
+And on browser paste node-external-IP:argocd-server port. For example : *54.161.25.151:32308*
 
-- Agcocd UI will open on browser. Username will be * admin*, for password do below:
+
+**Troubleshooting**:
+1. I was not able to open argocd UI. I troubleshoot it and found due to Single small EC2 node (t3.small) resources was exosted and argocd resources/pod was in pending state.
+```
+kubectl get pods -n argocd
+```
+2. 
+- Step 1: Check your nodegroup name
+```
+eksctl get nodegroup --cluster demo-cluster --region us-east-1
+```
+- Step 2: Scale node count (add one more node)
+```
+eksctl scale nodegroup --cluster demo-cluster --region us-east-1 --name ng-1 --nodes 2
+```
+- Step 3: Verify nodes
+```
+kubectl get nodes
+```
+- Step 4: Verify argocd pods
+```
+kubectl get pods -n argocd
+```
+*End of troubleshooting*
+
+- Argocd UI will open on browser. Username will be * admin*, for password do below:
 
 1. Copy the Name of secret argocd-initial-admin-secret from below command:
 ```
 kubectl get secrets -n argocd
 ```
+
 2. Edit the secret which has the initial password:
 ```
 kubectl edit secrets argocd-initial-admin-secret -n argocd
